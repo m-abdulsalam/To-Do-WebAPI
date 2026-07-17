@@ -7,6 +7,6 @@ namespace To_Do_WebAPI.Context
     {
         public ToDoContext(DbContextOptions<ToDoContext> options)
             :base (options) { }
-        public DbSet<TodoItem> Items { get; set; }         
+        public DbSet<ToDoItem> Items { get; set; }         
     }
 }

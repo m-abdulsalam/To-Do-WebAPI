@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using To_Do_WebAPI.Context;
+using To_Do_WebAPI.Implementations.Repositories;
+using To_Do_WebAPI.Interfaces.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<ToDoContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("ToDoContext")
     ));
+
+builder.Services.AddScoped<IToDoRepository, ToDoRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
